@@ -1,0 +1,47 @@
+.donation-page{
+min-height:100vh;
+padding:50px;
+background:linear-gradient(135deg,#081222,#111d40,#20154b);
+color:white;
+font-family:Segoe UI,sans-serif;
+}
+
+.donation-page h1{
+text-align:center;
+font-size:46px;
+margin-bottom:10px;
+}
+
+.donation-page p{
+text-align:center;
+color:#d7d7d7;
+margin-bottom:35px;
+}
+
+.donation-card{
+background:rgba(255,255,255,.08);
+backdrop-filter:blur(15px);
+border-radius:20px;
+padding:25px;
+margin:20px auto;
+max-width:900px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+border:1px solid rgba(255,255,255,.12);
+}
+
+.donation-card button{
+background:#22c55e;
+border:none;
+padding:14px 26px;
+border-radius:12px;
+color:white;
+font-weight:bold;
+cursor:pointer;
+transition:.3s;
+}
+
+.donation-card button:hover{
+transform:translateY(-3px);
+}
