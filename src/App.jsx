@@ -9,6 +9,7 @@ import Scan from "./pages/Scan";
 import Recipes from "./pages/recipes";
 import Donation from "./pages/Donation";
 import Analytics from "./pages/Analytics";
+import HealthHub from "./pages/HealthHub";
 import Profile from "./pages/Profile";
 
 import ProtectedRoute from "./components/ProtectedRoute";
@@ -73,6 +74,15 @@ function App() {
           </ProtectedRoute>
         }
       />
+
+      <Route
+  path="/health"
+  element={
+    <ProtectedRoute>
+      <HealthHub />
+    </ProtectedRoute>
+  }
+/>
 
       <Route
         path="/profile"

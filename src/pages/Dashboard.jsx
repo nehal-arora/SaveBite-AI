@@ -145,6 +145,13 @@ function Dashboard() {
   </button>
 
   <button
+  className="quick-btn"
+  onClick={() => navigate("/health")}
+>
+  💊 Health Hub
+</button>
+
+  <button
     className="quick-btn"
     onClick={() => navigate("/profile")}
   >
