@@ -86,7 +86,36 @@ function Analytics() {
         </div>
 
       </div>
+<div className="ai-panel">
+  <h2>🤖 AI Insights</h2>
 
+  <div className="ai-tip">
+    ✅ {freshItems} items are fresh and safely stored.
+  </div>
+
+  <div className="ai-tip">
+    ⚠️ {expiringItems} item(s) should be consumed within the next 3 days.
+  </div>
+
+  <div className="ai-tip">
+    🚨 {expiredItems} expired item(s) should be removed from your pantry.
+  </div>
+
+  <div className="ai-tip">
+    💰 Estimated savings: <strong>₹{totalItems * 120}</strong> by reducing food waste.
+  </div>
+
+  <div className="ai-tip">
+    🌱 Sustainability Score:{" "}
+    <strong>
+      {Math.min(
+        100,
+        Math.round((freshItems / Math.max(totalItems, 1)) * 100)
+      )}
+      %
+    </strong>
+  </div>
+</div>
     </div>
   );
 }

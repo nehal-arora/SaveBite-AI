@@ -1,38 +1,24 @@
 import { Link } from "react-router-dom";
+import "../styles/Navbar.css";
 
 function Navbar() {
   return (
-    <nav
-      style={{
-        background: "#0f172a",
-        color: "white",
-        padding: "18px 40px",
-        display: "flex",
-        justifyContent: "space-between",
-        alignItems: "center",
-      }}
-    >
-      <h2>🍽 SaveBite AI</h2>
+    <nav className="navbar">
+      <div className="logo">
+        {/* Replace logo.png with your app logo later */}
+        <img
+  src="/savebite-logo.png"
+  alt="SaveBite AI"
+  className="logo-img"
+/>
+        <h2>SaveBite AI</h2>
+      </div>
 
-      <div style={{ display: "flex", gap: "20px" }}>
-        <Link to="/" style={{ color: "white", textDecoration: "none" }}>
-          Home
-        </Link>
-
-        <Link to="/login" style={{ color: "white", textDecoration: "none" }}>
-          Login
-        </Link>
-
-        <Link to="/signup" style={{ color: "white", textDecoration: "none" }}>
-          Signup
-        </Link>
-
-        <Link
-          to="/dashboard"
-          style={{ color: "white", textDecoration: "none" }}
-        >
-          Dashboard
-        </Link>
+      <div className="nav-links">
+        <Link to="/">Home</Link>
+        <Link to="/login">Login</Link>
+        <Link to="/signup">Signup</Link>
+        <Link to="/dashboard">Dashboard</Link>
       </div>
     </nav>
   );

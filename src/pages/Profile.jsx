@@ -48,9 +48,17 @@ function Profile() {
           </div>
 
           <div className="info-card">
-            <h2>SaveBite AI</h2>
-            <p>Version 2.0</p>
-          </div>
+  <h2>₹{totalItems * 120}</h2>
+  <p>Estimated Savings</p>
+</div>
+<div className="info-card">
+  <h2>{Math.max(totalItems * 2, 0)} kg</h2>
+  <p>Food Waste Prevented</p>
+</div>
+<div className="info-card">
+  <h2>AI</h2>
+  <p>Smart Pantry Assistant</p>
+</div>
 
         </div>
 

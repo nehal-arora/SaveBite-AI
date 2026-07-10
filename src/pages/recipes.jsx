@@ -89,22 +89,38 @@ Keep every recipe practical and easy for students and families.
         </p>
 
         <button
-          className="generate-btn"
-          onClick={generateRecipes}
-        >
-          {loading ? "Generating..." : "Generate Recipes"}
-        </button>
+  className="generate-btn"
+  onClick={generateRecipes}
+  disabled={loading}
+>
+  {loading ? "🤖 Creating AI Recipes..." : "✨ Generate AI Recipes"}
+</button>
 
         <div className="recipe-result">
 
-          <pre
-            style={{
-              whiteSpace: "pre-wrap",
-              fontFamily: "inherit",
-            }}
-          >
-            {recipes}
-          </pre>
+          {loading ? (
+  <>
+    <div className="loading-spinner"></div>
+    <p
+      style={{
+        textAlign: "center",
+        color: "#CBD5E1",
+        marginTop: "20px",
+      }}
+    >
+      SaveBite AI is preparing personalized recipes...
+    </p>
+  </>
+) : (
+  <pre
+    style={{
+      whiteSpace: "pre-wrap",
+      fontFamily: "inherit",
+    }}
+  >
+    {recipes}
+  </pre>
+)}
 
         </div>
 

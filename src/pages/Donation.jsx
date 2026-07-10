@@ -44,8 +44,15 @@ function Donation() {
       </p>
 
       {items.length === 0 ? (
-        <h3>No items available for donation.</h3>
-      ) : (
+  <div className="empty-state">
+    <h3>❤️ Nothing to Donate</h3>
+
+    <p>
+      Great job! You don't have any food items that are close to expiry.
+      Keep managing your pantry with SaveBite AI.
+    </p>
+  </div>
+) : (
         items.map((item) => (
           <div
             className="donation-card"
@@ -60,12 +67,10 @@ function Donation() {
             </div>
 
             <button
-              onClick={() =>
-                donate(item.food)
-              }
-            >
-              Donate
-            </button>
+onClick={() => donate(item.food)}
+>
+❤️ Donate Now
+</button>
 
           </div>
         ))

@@ -67,6 +67,40 @@ Keep the answer under 250 words.
           Ask anything about recipes, food storage, nutrition or your pantry.
         </p>
 
+        <div className="prompt-row">
+  <button
+    type="button"
+    className="prompt-chip"
+    onClick={() => setQuestion("What can I cook with my pantry items?")}
+  >
+    🍳 Recipe Ideas
+  </button>
+
+  <button
+    type="button"
+    className="prompt-chip"
+    onClick={() => setQuestion("How should I store milk?")}
+  >
+    🧊 Storage Tips
+  </button>
+
+  <button
+    type="button"
+    className="prompt-chip"
+    onClick={() => setQuestion("Suggest healthy alternatives.")}
+  >
+    🥗 Healthy Food
+  </button>
+
+  <button
+    type="button"
+    className="prompt-chip"
+    onClick={() => setQuestion("Which item should I use first?")}
+  >
+    ⏰ Expiring Soon
+  </button>
+</div>
+
         <textarea
           placeholder="Example: What can I cook with my pantry items?"
           value={question}

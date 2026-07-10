@@ -1,0 +1,182 @@
+/* =========================
+   SAVEBITE AI - HOME PAGE
+========================= */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.home {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #07111d, #0f172a);
+  color: #ffffff;
+}
+
+/* ---------------- HERO ---------------- */
+
+.hero {
+  min-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 40px 20px;
+  text-align: center;
+}
+
+.hero-logo {
+  width: 120px;
+  margin-bottom: 30px;
+  filter: drop-shadow(0 0 20px rgba(74, 222, 128, 0.5));
+}
+
+.hero h1 {
+  font-size: 4rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+
+  background: linear-gradient(90deg, #4ade80, #22d3ee);
+
+  background-clip: text;
+  -webkit-background-clip: text;
+
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  max-width: 760px;
+  color: #cbd5e1;
+  font-size: 1.25rem;
+  line-height: 1.8;
+  margin-bottom: 40px;
+}
+
+/* ---------------- BUTTONS ---------------- */
+
+.hero-buttons {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.primary-btn {
+  background: #4ade80;
+  color: #08131f;
+  padding: 15px 34px;
+  border-radius: 12px;
+  border: none;
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 700;
+  transition: 0.3s;
+}
+
+.primary-btn:hover {
+  transform: translateY(-4px);
+  background: #22c55e;
+}
+
+.secondary-btn {
+  background: transparent;
+  border: 2px solid #4ade80;
+  color: white;
+  padding: 15px 34px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-size: 17px;
+  transition: 0.3s;
+}
+
+.secondary-btn:hover {
+  background: #4ade80;
+  color: #08131f;
+}
+
+/* ---------------- FEATURES ---------------- */
+
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  padding: 80px 8%;
+}
+
+.feature-card {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(18px);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 20px;
+  padding: 35px;
+  transition: 0.3s;
+}
+
+.feature-card:hover {
+  transform: translateY(-10px);
+  border-color: #4ade80;
+  box-shadow: 0 20px 45px rgba(74,222,128,.18);
+}
+
+.feature-card h2 {
+  margin-bottom: 15px;
+  color: #4ade80;
+}
+
+.feature-card p {
+  color: #cbd5e1;
+  line-height: 1.7;
+}
+
+/* ---------------- STATS ---------------- */
+
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 80px;
+  padding: 70px 20px;
+  flex-wrap: wrap;
+}
+
+.stats div {
+  text-align: center;
+}
+
+.stats h2 {
+  font-size: 3rem;
+  color: #4ade80;
+  margin-bottom: 10px;
+}
+
+.stats p {
+  color: #94a3b8;
+}
+
+/* ---------------- RESPONSIVE ---------------- */
+
+@media (max-width:768px) {
+
+  .hero h1 {
+    font-size: 2.7rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .stats {
+    gap: 40px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    width: 100%;
+    align-items: center;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    width: 240px;
+  }
+}

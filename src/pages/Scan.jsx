@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { motion } from "framer-motion";
 import "../styles/scan.css";
 import { model } from "../services/gemini";
 import { auth } from "../services/firebase";
@@ -37,7 +38,6 @@ function Scan() {
       };
 
       reader.onerror = reject;
-
       reader.readAsDataURL(file);
     });
   }
@@ -50,12 +50,12 @@ function Scan() {
 
     try {
       setLoading(true);
-      setResult("Scanning image with AI...");
+      setResult("🤖 AI is analyzing your product...");
 
       const imagePart = await fileToGenerativePart(imageFile);
 
       const response = await model.generateContent([
-  `
+        `
 You are SaveBite AI, an expert food intelligence assistant.
 
 Analyze this food product image carefully.
@@ -91,9 +91,9 @@ Rules:
 If something isn't visible write "Not Found".
 
 Return ONLY JSON.
-`,
-  imagePart,
-]);
+        `,
+        imagePart,
+      ]);
 
       let text = response.response.text().trim();
 
@@ -145,36 +145,44 @@ ${data.shelfLife}
 
 🤖 Recommendation:
 ${data.recommendation}
-`);
+      `);
 
       setTimeout(() => {
         navigate("/pantry");
-      }, 2000);
+      }, 2500);
 
     } catch (error) {
       console.error(error);
 
       setResult(
-        "❌ AI couldn't read this image.\n\nTry a clearer photo with the expiry date visible."
+        "❌ AI couldn't read this image.\n\nTry uploading a clearer image with the expiry date visible."
       );
     }
 
     setLoading(false);
   }
-
-  return (
+    return (
     <div className="scan-page">
+      <motion.div
+        className="scan-box"
+        initial={{ opacity: 0, y: 40 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <img
+          src="/savebite-logo.png"
+          alt="SaveBite AI"
+          className="scan-logo"
+        />
 
-      <div className="scan-box">
+        <h1>AI Food Scanner</h1>
 
-        <h1>📷 AI Food Scanner</h1>
-
-        <p>
-          Upload a food packet or receipt.
+        <p className="scan-subtitle">
+          Upload a food packet or receipt and let SaveBite AI detect expiry,
+          nutrition, storage tips and more.
         </p>
 
         <label className="upload-area">
-
           <input
             type="file"
             accept="image/*"
@@ -182,44 +190,65 @@ ${data.recommendation}
             onChange={handleImage}
           />
 
-          Click to Upload Image
-
+          {image ? (
+            <img
+              src={image}
+              alt="Preview"
+              className="preview"
+            />
+          ) : (
+            <>
+              <h2>📷 Upload Food Image</h2>
+              <p>Click here or drag & drop your image</p>
+            </>
+          )}
         </label>
-
-        {image && (
-          <img
-            src={image}
-            alt="Preview"
-            className="preview"
-          />
-        )}
 
         <button
           className="scan-btn"
           onClick={testGemini}
           disabled={loading}
         >
-          {loading ? "Scanning..." : "Scan with AI"}
+          {loading ? "Analyzing..." : "Scan with AI"}
         </button>
 
-        <div className="result">
-
-          <h3>AI Scan Result</h3>
-
-          <pre
-            style={{
-              whiteSpace: "pre-wrap",
-              fontFamily: "inherit",
-            }}
+        {loading && (
+          <motion.div
+            className="ai-loader"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
           >
-            {result ||
-              "Upload an image and click Scan with AI."}
-          </pre>
+            <div className="loader-circle"></div>
 
-        </div>
+            <h3>🤖 SaveBite AI is analyzing...</h3>
 
-      </div>
+            <p>
+              Detecting product details, expiry date,
+              nutrition and storage recommendations...
+            </p>
+          </motion.div>
+        )}
 
+        {!loading && (
+          <motion.div
+            className="result"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+          >
+            <h3>AI Scan Result</h3>
+
+            <pre
+              style={{
+                whiteSpace: "pre-wrap",
+                fontFamily: "inherit",
+              }}
+            >
+              {result ||
+                "Upload an image and click 'Scan with AI' to begin."}
+            </pre>
+          </motion.div>
+        )}
+      </motion.div>
     </div>
   );
 }

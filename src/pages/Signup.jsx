@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../services/firebase";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
+import { motion } from "framer-motion";
 import "../styles/auth.css";
 
 function Signup() {
@@ -31,9 +32,23 @@ function Signup() {
 
   return (
     <div className="auth-container">
-      <div className="auth-card">
+      <motion.div
+        className="auth-card"
+        initial={{ opacity: 0, y: 50 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7 }}
+      >
+        <img
+          src="/savebite-logo.png"
+          alt="SaveBite AI"
+          className="auth-logo"
+        />
 
         <h1>Create Account</h1>
+
+        <p className="auth-subtitle">
+          Join SaveBite AI and start reducing food waste with smart AI.
+        </p>
 
         <input
           className="auth-input"
@@ -65,7 +80,11 @@ function Signup() {
           Create Account
         </button>
 
-      </div>
+        <div className="auth-footer">
+          Already have an account?{" "}
+          <Link to="/login">Login</Link>
+        </div>
+      </motion.div>
     </div>
   );
 }
