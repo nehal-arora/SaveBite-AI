@@ -1,1511 +1,918 @@
-/* ================================
-   SAVE BITE HEALTH HUB
-   DARK AI THEME
-================================ */
+/* ==========================
+   HEALTH HUB
+========================== */
 
-
-.health-page {
-
-  min-height:100vh;
-
-  padding:32px;
-
-  background:
-  radial-gradient(
-    circle at top left,
-    rgba(99,102,241,0.18),
-    transparent 35%
-  ),
-
-  radial-gradient(
-    circle at bottom right,
-    rgba(6,182,212,0.15),
-    transparent 35%
-  ),
-
-  #070b1a;
-
-  color:white;
-
+.health-page{
+    min-height:100vh;
+    padding:35px;
+    background:linear-gradient(135deg,#081425,#102b4f,#071220);
+    color:white;
 }
 
 
-
-/* ================================
+/* ==========================
    HEADER
-================================ */
+========================== */
+
+.health-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:35px;
+    flex-wrap:wrap;
+    gap:20px;
+}
+
+.health-header h1{
+    font-size:2.3rem;
+    font-weight:700;
+    margin-bottom:8px;
+}
+
+.health-header p{
+    color:#b7c8dd;
+    font-size:15px;
+}
 
 
-.health-header {
+.add-medicine-btn{
 
-  display:flex;
+    display:flex;
+    align-items:center;
+    gap:10px;
 
-  justify-content:space-between;
+    border:none;
 
-  align-items:center;
+    padding:14px 24px;
 
-  margin-bottom:35px;
+    border-radius:14px;
+
+    background:#3b82f6;
+
+    color:white;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+}
+
+.add-medicine-btn:hover{
+
+    background:#2563eb;
+
+    transform:translateY(-2px);
 
 }
 
 
 
-.health-header h1 {
+/* ==========================
+   STATS
+========================== */
 
-  font-size:34px;
+.health-stats{
 
-  font-weight:800;
+    display:grid;
 
-  letter-spacing:-1px;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
 
-  background:
-  linear-gradient(
-    90deg,
-    #ffffff,
-    #67e8f9
-  );
+    gap:22px;
 
-  -webkit-background-clip:text;
-
-  color:transparent;
+    margin-bottom:35px;
 
 }
 
 
 
-.health-header p {
+.health-stat-card{
 
-  margin-top:8px;
+    background:rgba(255,255,255,.08);
 
-  color:#94a3b8;
+    border:1px solid rgba(255,255,255,.08);
 
-  font-size:15px;
+    backdrop-filter:blur(18px);
+
+    border-radius:18px;
+
+    padding:24px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:18px;
+
+    transition:.35s;
+
+}
+
+
+.health-stat-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+
+.icon-box{
+
+    width:60px;
+
+    height:60px;
+
+    border-radius:16px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    background:#2563eb;
+
+}
+
+
+.icon-box svg{
+
+    width:28px;
+
+    height:28px;
+
+}
+
+
+.icon-box.warning{
+
+    background:#f59e0b;
+
+}
+
+.icon-box.success{
+
+    background:#10b981;
+
+}
+
+
+.health-stat-card h3{
+
+    font-size:28px;
+
+    margin-bottom:4px;
+
+}
+
+.health-stat-card p{
+
+    color:#b7c8dd;
+
+    font-size:14px;
 
 }
 
 
 
-/* ================================
-   ADD MEDICINE BUTTON
-================================ */
+/* ==========================
+   SEARCH
+========================== */
+
+.medicine-search{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+    background:rgba(255,255,255,.08);
+
+    border-radius:15px;
+
+    padding:14px 18px;
+
+    margin-bottom:35px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+}
 
 
-.add-medicine-btn {
+.medicine-search input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:15px;
+
+}
 
 
-  display:flex;
+.medicine-search input::placeholder{
 
-  align-items:center;
-
-  gap:10px;
-
-
-  padding:14px 24px;
-
-
-  border:none;
-
-  border-radius:16px;
-
-
-  color:white;
-
-  font-weight:600;
-
-  font-size:15px;
-
-
-  cursor:pointer;
-
-
-  background:
-
-  linear-gradient(
-    135deg,
-    #6366f1,
-    #06b6d4
-  );
-
-
-  box-shadow:
-
-  0 0 25px
-  rgba(99,102,241,0.45);
-
-
-  transition:0.3s;
-
+    color:#b8c8da;
 
 }
 
 
 
-.add-medicine-btn:hover {
+/* ==========================
+   SECTION
+========================== */
 
+.medicine-section{
 
-  transform:translateY(-3px);
-
-
-  box-shadow:
-
-  0 0 35px
-  rgba(6,182,212,0.55);
-
+    margin-top:15px;
 
 }
 
 
+.section-title{
 
+    display:flex;
 
+    justify-content:space-between;
 
-/* ================================
-   HEALTH STATS
-================================ */
+    align-items:center;
 
+    margin-bottom:25px;
 
-.health-stats {
+    flex-wrap:wrap;
 
-
-  display:grid;
-
-
-  grid-template-columns:
-
-  repeat(3,1fr);
-
-
-  gap:22px;
-
-
-  margin-bottom:28px;
-
+    gap:20px;
 
 }
 
 
+.section-title h2{
 
+    font-size:28px;
 
-.health-stat-card {
-
-
-  padding:24px;
-
-
-  border-radius:24px;
-
-
-  display:flex;
-
-
-  align-items:center;
-
-
-  gap:18px;
-
-
-
-  background:
-
-  rgba(255,255,255,0.07);
-
-
-
-  backdrop-filter:
-
-  blur(18px);
-
-
-
-  border:
-
-  1px solid
-  rgba(255,255,255,0.12);
-
-
-
-  box-shadow:
-
-  0 15px 40px
-  rgba(0,0,0,0.35);
-
-
-
-  transition:0.3s;
-
+    margin-bottom:5px;
 
 }
 
 
+.section-title p{
 
-
-.health-stat-card:hover {
-
-
-  transform:translateY(-5px);
-
-
-  border-color:
-
-  rgba(99,102,241,0.5);
-
+    color:#b7c8dd;
 
 }
 
 
+.empty-health-card{
 
+    background:rgba(255,255,255,.08);
 
-.health-stat-card h3 {
+    border-radius:20px;
 
+    padding:70px 30px;
 
-  font-size:30px;
+    text-align:center;
 
-
-  margin:0;
-
-
-  color:white;
-
+    border:1px solid rgba(255,255,255,.08);
 
 }
 
 
+.empty-health-card svg{
 
+    color:#60a5fa;
 
-.health-stat-card p {
-
-
-  margin-top:5px;
-
-
-  color:#94a3b8;
-
-
-  font-size:14px;
-
+    margin-bottom:20px;
 
 }
 
 
+.empty-health-card h3{
 
+    margin-bottom:10px;
 
-/* ICON BOX */
-
-
-.icon-box {
-
-
-  height:55px;
-
-
-  width:55px;
-
-
-  border-radius:18px;
-
-
-  display:flex;
-
-
-  align-items:center;
-
-
-  justify-content:center;
-
-
-
-  background:
-
-  rgba(99,102,241,0.18);
-
-
-
-  color:#67e8f9;
-
+    font-size:24px;
 
 }
 
 
+.empty-health-card p{
 
-.icon-box.warning {
+    color:#b7c8dd;
 
-
-  background:
-
-  rgba(245,158,11,0.18);
-
-
-  color:#fbbf24;
-
+    margin-bottom:22px;
 
 }
 
 
+.empty-add-btn{
 
-.icon-box.success {
+    background:#3b82f6;
 
+    border:none;
 
-  background:
+    color:white;
 
-  rgba(34,197,94,0.18);
+    padding:14px 22px;
 
+    border-radius:12px;
 
-  color:#4ade80;
+    cursor:pointer;
 
+    display:inline-flex;
 
-}
-/* ================================
-   SEARCH BAR
-================================ */
+    align-items:center;
 
+    gap:10px;
 
-.medicine-search {
-
-
-  display:flex;
-
-
-  align-items:center;
-
-
-  gap:12px;
-
-
-  padding:16px 20px;
-
-
-  margin-bottom:35px;
-
-
-
-  background:
-
-  rgba(255,255,255,0.07);
-
-
-
-  backdrop-filter:
-
-  blur(15px);
-
-
-
-  border-radius:18px;
-
-
-
-  border:
-
-  1px solid
-  rgba(255,255,255,0.12);
-
-
-
-  color:#94a3b8;
-
+    transition:.3s;
 
 }
 
+.empty-add-btn:hover{
 
-
-
-.medicine-search input {
-
-
-  flex:1;
-
-
-  background:transparent;
-
-
-  border:none;
-
-
-  outline:none;
-
-
-  color:white;
-
-
-  font-size:15px;
-
+    background:#2563eb;
 
 }
-
-
-
-.medicine-search input::placeholder {
-
-
-  color:#64748b;
-
-
-}
-
-
-
-
-
-/* ================================
-   SECTION TITLE
-================================ */
-
-
-.section-title {
-
-
-  display:flex;
-
-
-  justify-content:space-between;
-
-
-  align-items:center;
-
-
-  margin-bottom:22px;
-
-
-}
-
-
-
-.section-title h2 {
-
-
-  font-size:25px;
-
-
-  color:white;
-
-
-  margin-bottom:6px;
-
-
-}
-
-
-
-.section-title p {
-
-
-  color:#94a3b8;
-
-
-  font-size:14px;
-
-
-}
-
-
-
-
-
-
-/* ================================
+/* ==========================
    MEDICINE GRID
-================================ */
+========================== */
 
-
-.medicine-grid {
-
-
-  display:grid;
-
-
-  grid-template-columns:
-
-  repeat(3,1fr);
-
-
-  gap:22px;
-
-
+.medicine-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
 }
 
 
-
-
-
-/* ================================
+/* ==========================
    MEDICINE CARD
-================================ */
+========================== */
 
+.medicine-card{
 
-.medicine-card {
+    background:rgba(255,255,255,.08);
 
+    border:1px solid rgba(255,255,255,.08);
 
-  padding:22px;
+    backdrop-filter:blur(20px);
 
+    border-radius:20px;
 
-  border-radius:25px;
+    padding:22px;
 
+    transition:.35s;
 
+    position:relative;
 
-  background:
+    overflow:hidden;
 
+}
 
-  linear-gradient(
+.medicine-card:hover{
 
-  145deg,
+    transform:translateY(-8px);
 
-  rgba(255,255,255,0.10),
+    border-color:#3b82f6;
 
-  rgba(255,255,255,0.04)
-
-  );
-
-
-
-  border:
-
-
-  1px solid
-
-  rgba(255,255,255,0.12);
-
-
-
-  backdrop-filter:
-
-  blur(18px);
-
-
-
-  box-shadow:
-
-
-  0 15px 40px
-
-  rgba(0,0,0,0.35);
-
-
-
-  transition:0.3s;
-
+    box-shadow:0 12px 35px rgba(59,130,246,.25);
 
 }
 
 
 
+.medicine-card-top{
 
-.medicine-card:hover {
+    display:flex;
 
+    justify-content:space-between;
 
-  transform:translateY(-6px);
+    align-items:center;
 
-
-  border-color:
-
-  rgba(6,182,212,0.5);
-
-
-
-  box-shadow:
-
-
-  0 20px 45px
-
-  rgba(6,182,212,0.15);
-
+    margin-bottom:18px;
 
 }
 
 
 
+.medicine-icon{
 
+    width:60px;
 
-.medicine-card-top {
+    height:60px;
 
+    border-radius:16px;
 
-  display:flex;
+    display:flex;
 
+    align-items:center;
 
-  justify-content:space-between;
+    justify-content:center;
 
+    background:#2563eb;
 
-  align-items:center;
+}
 
+.medicine-icon svg{
 
-  margin-bottom:18px;
-
+    color:white;
 
 }
 
 
 
+.delete-btn{
 
+    width:42px;
 
-.medicine-icon {
+    height:42px;
 
+    border:none;
 
-  width:55px;
+    border-radius:12px;
 
+    background:rgba(239,68,68,.15);
 
-  height:55px;
+    color:#ef4444;
 
+    cursor:pointer;
 
-  display:flex;
+    transition:.3s;
 
+}
 
-  align-items:center;
+.delete-btn:hover{
 
+    background:#ef4444;
 
-  justify-content:center;
-
-
-  border-radius:18px;
-
-
-  color:#67e8f9;
-
-
-
-  background:
-
-
-  rgba(6,182,212,0.15);
-
+    color:white;
 
 }
 
 
 
+.medicine-card h3{
 
+    font-size:24px;
 
-.delete-btn {
-
-
-  width:38px;
-
-
-  height:38px;
-
-
-  border-radius:12px;
-
-
-  border:none;
-
-
-  cursor:pointer;
-
-
-  display:flex;
-
-
-  align-items:center;
-
-
-  justify-content:center;
-
-
-
-  color:#fb7185;
-
-
-
-  background:
-
-
-  rgba(244,63,94,0.15);
-
+    margin-bottom:16px;
 
 }
 
 
 
-.delete-btn:hover {
+/* ==========================
+   BADGES
+========================== */
 
+.expiry-badge{
 
-  background:
+    display:inline-block;
 
-  rgba(244,63,94,0.3);
+    padding:7px 14px;
 
+    border-radius:999px;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    margin-bottom:20px;
+
+}
+
+.expiry-badge.safe{
+
+    background:#065f46;
+
+    color:#6ee7b7;
+
+}
+
+.expiry-badge.warning{
+
+    background:#78350f;
+
+    color:#fcd34d;
+
+}
+
+.expiry-badge.expired{
+
+    background:#7f1d1d;
+
+    color:#fca5a5;
 
 }
 
 
 
+/* ==========================
+   INFO
+========================== */
 
+.medicine-info{
 
+    display:flex;
 
-.medicine-card h3 {
+    justify-content:space-between;
 
+    align-items:center;
 
-  color:white;
+    padding:10px 0;
 
+    border-bottom:1px solid rgba(255,255,255,.08);
 
-  font-size:21px;
+}
 
+.medicine-info:last-of-type{
 
-  margin-bottom:18px;
+    border-bottom:none;
 
+}
+
+.medicine-info span{
+
+    color:#b7c8dd;
+
+    font-size:14px;
+
+}
+
+.medicine-info strong{
+
+    font-size:15px;
+
+    font-weight:600;
 
 }
 
 
 
+/* ==========================
+   BUTTONS
+========================== */
 
+.dose-buttons{
 
+    display:flex;
 
-/* DETAILS */
+    gap:12px;
 
-
-.medicine-info {
-
-
-  display:flex;
-
-
-  justify-content:space-between;
-
-
-  padding:12px 0;
-
-
-
-  border-bottom:
-
-
-  1px solid
-
-  rgba(255,255,255,0.08);
-
-
-
-  font-size:14px;
-
+    margin-top:22px;
 
 }
 
 
 
-.medicine-info span {
+.taken-btn{
 
+    flex:1;
 
-  color:#94a3b8;
+    display:flex;
 
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    cursor:pointer;
+
+    background:#10b981;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.taken-btn:hover{
+
+    background:#059669;
 
 }
 
 
 
-.medicine-info strong {
+.missed-btn{
 
+    flex:1;
 
-  color:#e2e8f0;
+    display:flex;
 
+    justify-content:center;
+
+    align-items:center;
+
+    gap:8px;
+
+    border:none;
+
+    border-radius:12px;
+
+    padding:12px;
+
+    cursor:pointer;
+
+    background:#ef4444;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.missed-btn:hover{
+
+    background:#dc2626;
+
+}
+/* ==========================
+   MODAL
+========================== */
+
+.medicine-overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.65);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:1000;
+    padding:20px;
+    backdrop-filter:blur(8px);
+}
+
+.medicine-modal{
+
+    width:100%;
+    max-width:520px;
+
+    background:#0f1d33;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    border-radius:22px;
+
+    padding:30px;
+
+    box-shadow:0 20px 60px rgba(0,0,0,.45);
+
+    animation:popup .35s ease;
+
+}
+
+@keyframes popup{
+
+    from{
+        transform:translateY(30px);
+        opacity:0;
+    }
+
+    to{
+        transform:translateY(0);
+        opacity:1;
+    }
+
+}
+
+.medicine-modal h2{
+
+    font-size:28px;
+
+    margin-bottom:8px;
+
+}
+
+.medicine-modal p{
+
+    color:#b7c8dd;
+
+    margin-bottom:25px;
+
+}
+
+.medicine-modal input{
+
+    width:100%;
+
+    margin-bottom:18px;
+
+    padding:15px;
+
+    border:none;
+
+    outline:none;
+
+    border-radius:14px;
+
+    background:#162847;
+
+    color:white;
+
+    font-size:15px;
+
+    transition:.3s;
+
+    box-sizing:border-box;
+
+}
+
+.medicine-modal input:focus{
+
+    border:1px solid #3b82f6;
+
+    box-shadow:0 0 0 3px rgba(59,130,246,.18);
+
+}
+
+.medicine-modal input::placeholder{
+
+    color:#9fb0c6;
 
 }
 
 
 
+/* ==========================
+   MODAL BUTTONS
+========================== */
 
+.modal-actions{
 
-/* REMINDER */
+    display:flex;
 
+    justify-content:flex-end;
 
-.reminder-box {
+    gap:14px;
 
+    margin-top:12px;
 
-  margin-top:18px;
+}
 
+.cancel-btn{
 
-  padding:12px;
+    border:none;
 
+    padding:13px 22px;
 
-  border-radius:15px;
+    border-radius:12px;
 
+    background:#374151;
 
+    color:white;
 
-  display:flex;
+    cursor:pointer;
 
+    transition:.3s;
 
-  align-items:center;
+    font-weight:600;
 
+}
 
-  gap:8px;
+.cancel-btn:hover{
 
+    background:#4b5563;
 
+}
 
-  background:
+.save-btn{
 
+    border:none;
 
-  rgba(99,102,241,0.12);
+    padding:13px 22px;
 
+    border-radius:12px;
 
+    background:#3b82f6;
 
-  color:#c7d2fe;
+    color:white;
 
+    cursor:pointer;
 
-  font-size:13px;
+    transition:.3s;
 
+    font-weight:600;
+
+}
+
+.save-btn:hover{
+
+    background:#2563eb;
 
 }
 
 
 
+/* ==========================
+   SCROLLBAR
+========================== */
 
+::-webkit-scrollbar{
+    width:8px;
+}
 
+::-webkit-scrollbar-thumb{
+    background:#3b82f6;
+    border-radius:20px;
+}
 
-/* ================================
-   EMPTY STATE
-================================ */
-
-
-.empty-health-card {
-
-
-  padding:55px 25px;
-
-
-  text-align:center;
-
-
-  border-radius:25px;
-
-
-
-  background:
-
-
-  rgba(255,255,255,0.06);
-
-
-
-  border:
-
-
-  1px dashed
-
-  rgba(255,255,255,0.2);
-
-
-
-  backdrop-filter:
-
-  blur(15px);
-
-
-
+::-webkit-scrollbar-track{
+    background:#081425;
 }
 
 
 
-.empty-health-card svg {
-
-
-  color:#67e8f9;
-
-
-  margin-bottom:15px;
-
-
-}
-
-
-
-.empty-health-card h3 {
-
-
-  color:white;
-
-
-  font-size:21px;
-
-
-  margin-bottom:10px;
-
-
-}
-
-
-
-.empty-health-card p {
-
-
-  color:#94a3b8;
-
-
-  margin-bottom:22px;
-
-
-}
-
-
-
-
-
-.empty-add-btn {
-
-
-  display:inline-flex;
-
-
-  align-items:center;
-
-
-  gap:8px;
-
-
-
-  padding:13px 22px;
-
-
-
-  border:none;
-
-
-  border-radius:15px;
-
-
-
-  color:white;
-
-
-
-  background:
-
-
-  linear-gradient(
-
-  135deg,
-
-  #6366f1,
-
-  #06b6d4
-
-  );
-
-
-
-  cursor:pointer;
-
-
-  font-weight:600;
-
-
-}
-
-/* ================================
-   MEDICINE MODAL
-================================ */
-
-
-.medicine-overlay {
-
-
-  position:fixed;
-
-
-  inset:0;
-
-
-
-  display:flex;
-
-
-  align-items:center;
-
-
-  justify-content:center;
-
-
-
-  background:
-
-
-  rgba(0,0,0,0.65);
-
-
-
-  backdrop-filter:
-
-  blur(8px);
-
-
-
-  z-index:999;
-
-
-
-}
-
-
-
-
-.medicine-modal {
-
-
-  width:430px;
-
-
-  padding:32px;
-
-
-  border-radius:28px;
-
-
-
-  background:
-
-
-  linear-gradient(
-
-  145deg,
-
-  rgba(15,23,42,0.95),
-
-  rgba(30,41,59,0.95)
-
-  );
-
-
-
-  border:
-
-
-  1px solid
-
-  rgba(255,255,255,0.12);
-
-
-
-  box-shadow:
-
-
-  0 30px 80px
-
-  rgba(0,0,0,0.6);
-
-
-}
-
-
-
-
-.medicine-modal h2 {
-
-
-  color:white;
-
-
-  font-size:26px;
-
-
-  margin-bottom:8px;
-
-
-}
-
-
-
-
-.medicine-modal p {
-
-
-  color:#94a3b8;
-
-
-  font-size:14px;
-
-
-  margin-bottom:25px;
-
-
-}
-
-
-
-
-
-/* INPUTS */
-
-
-.medicine-modal input {
-
-
-  width:100%;
-
-
-  padding:14px 16px;
-
-
-  margin-bottom:15px;
-
-
-
-  border-radius:15px;
-
-
-
-  border:
-
-
-  1px solid
-
-  rgba(255,255,255,0.15);
-
-
-
-  background:
-
-
-  rgba(255,255,255,0.06);
-
-
-
-  color:white;
-
-
-  outline:none;
-
-
-
-  font-size:14px;
-
-
-}
-
-
-
-.medicine-modal input::placeholder {
-
-
-  color:#64748b;
-
-
-}
-
-
-
-.medicine-modal input:focus {
-
-
-  border-color:#06b6d4;
-
-
-  box-shadow:
-
-
-  0 0 0 3px
-
-  rgba(6,182,212,0.15);
-
-
-}
-
-
-
-
-
-/* MODAL BUTTONS */
-
-
-.modal-actions {
-
-
-  display:flex;
-
-
-  justify-content:flex-end;
-
-
-  gap:12px;
-
-
-  margin-top:18px;
-
-
-}
-
-
-
-.cancel-btn,
-
-
-.save-btn {
-
-
-  padding:13px 22px;
-
-
-  border-radius:15px;
-
-
-  border:none;
-
-
-  cursor:pointer;
-
-
-  font-weight:600;
-
-
-}
-
-
-
-
-
-.cancel-btn {
-
-
-  background:
-
-
-  rgba(255,255,255,0.08);
-
-
-
-  color:#cbd5e1;
-
-
-}
-
-
-
-.cancel-btn:hover {
-
-
-  background:
-
-
-  rgba(255,255,255,0.15);
-
-
-}
-
-
-
-
-
-.save-btn {
-
-
-  color:white;
-
-
-  background:
-
-
-  linear-gradient(
-
-  135deg,
-
-  #6366f1,
-
-  #06b6d4
-
-  );
-
-
-
-  box-shadow:
-
-
-  0 0 20px
-
-  rgba(99,102,241,0.35);
-
-
-}
-
-
-
-.save-btn:hover {
-
-
-  transform:translateY(-2px);
-
-
-}
-
-
-
-
-
-/* ================================
+/* ==========================
    RESPONSIVE
-================================ */
+========================== */
 
+@media(max-width:900px){
 
-@media(max-width:1100px){
+    .health-page{
 
+        padding:22px;
 
-.health-stats {
+    }
 
+    .health-header{
 
-grid-template-columns:
+        flex-direction:column;
 
-repeat(2,1fr);
+        align-items:flex-start;
 
+    }
 
-}
+    .health-stats{
 
+        grid-template-columns:1fr;
 
+    }
 
-.medicine-grid {
+    .medicine-grid{
 
+        grid-template-columns:1fr;
 
-grid-template-columns:
+    }
 
-repeat(2,1fr);
+    .dose-buttons{
 
+        flex-direction:column;
 
-}
-
-
-
-}
-
-
-
-
-@media(max-width:700px){
-
-
-
-.health-page {
-
-
-padding:18px;
-
+    }
 
 }
 
+@media(max-width:600px){
 
+    .health-header h1{
 
-.health-header {
+        font-size:32px;
 
+    }
 
-flex-direction:column;
+    .section-title{
 
+        flex-direction:column;
 
-align-items:flex-start;
+        align-items:flex-start;
 
+    }
 
-gap:20px;
+    .medicine-modal{
 
+        padding:22px;
 
-}
+    }
 
+    .modal-actions{
 
+        flex-direction:column;
 
-.add-medicine-btn {
+    }
 
+    .cancel-btn,
+    .save-btn{
 
-width:100%;
+        width:100%;
 
-
-justify-content:center;
-
-
-}
-
-
-
-.health-stats,
-
-
-.medicine-grid {
-
-
-grid-template-columns:1fr;
-
-
-}
-
-
-
-
-.section-title {
-
-
-align-items:flex-start;
-
-
-}
-
-
-
-
-.medicine-modal {
-
-
-width:90%;
-
-
-padding:25px;
-
-
-}
-
-
-
-}
-
-
-
-
-
-
-/* ================================
-   ANIMATION
-================================ */
-
-
-.health-stat-card,
-
-
-.medicine-card,
-
-
-.medicine-modal {
-
-
-animation:
-
-
-healthFade 0.45s ease;
-
-
-}
-
-
-
-
-@keyframes healthFade {
-
-
-from {
-
-
-opacity:0;
-
-
-transform:
-
-translateY(15px);
-
-
-}
-
-
-
-to {
-
-
-opacity:1;
-
-
-transform:
-
-translateY(0);
-
-
-}
-
-
+    }
 
 }

@@ -4,8 +4,8 @@ function readStorage() {
   try {
     const data = localStorage.getItem(STORAGE_KEY);
     return data ? JSON.parse(data) : [];
-  } catch (error) {
-    console.error("Error reading medicines:", error);
+  } catch (err) {
+    console.error(err);
     return [];
   }
 }
@@ -23,10 +23,24 @@ export async function addMedicine(medicine) {
 
   const newMedicine = {
     id: crypto.randomUUID(),
-    ...medicine,
-    lastTaken: null,
+
+    name: medicine.name,
+
+    quantity: medicine.quantity,
+
+    expiry: medicine.expiry,
+
+    reminder: medicine.reminder,
+
+    remaining:
+      Number(
+        medicine.quantity.replace(/\D/g, "")
+      ) || 0,
+
     takenCount: 0,
+
     missedCount: 0,
+
     createdAt: new Date().toISOString(),
   };
 
@@ -40,14 +54,14 @@ export async function addMedicine(medicine) {
 export async function updateMedicine(id, updatedMedicine) {
   const medicines = readStorage();
 
-  const updated = medicines.map((medicine) =>
-    medicine.id === id
+  const updated = medicines.map((m) =>
+    m.id === id
       ? {
-          ...medicine,
+          ...m,
           ...updatedMedicine,
           updatedAt: new Date().toISOString(),
         }
-      : medicine
+      : m
   );
 
   writeStorage(updated);
@@ -56,30 +70,27 @@ export async function updateMedicine(id, updatedMedicine) {
 export async function deleteMedicine(id) {
   const medicines = readStorage();
 
-  const filtered = medicines.filter(
-    (medicine) => medicine.id !== id
+  writeStorage(
+    medicines.filter((m) => m.id !== id)
   );
-
-  writeStorage(filtered);
 }
 
 export async function markDoseTaken(id) {
   const medicines = readStorage();
 
-  const updated = medicines.map((medicine) => {
-    if (medicine.id !== id) return medicine;
-
-    const remaining =
-      Number(medicine.remaining) > 0
-        ? Number(medicine.remaining) - 1
-        : 0;
+  const updated = medicines.map((m) => {
+    if (m.id !== id) return m;
 
     return {
-      ...medicine,
-      remaining,
-      takenCount: (medicine.takenCount || 0) + 1,
+      ...m,
+      remaining:
+        m.remaining > 0
+          ? m.remaining - 1
+          : 0,
+
+      takenCount: m.takenCount + 1,
+
       lastTaken: new Date().toISOString(),
-      updatedAt: new Date().toISOString(),
     };
   });
 
@@ -89,49 +100,14 @@ export async function markDoseTaken(id) {
 export async function markDoseMissed(id) {
   const medicines = readStorage();
 
-  const updated = medicines.map((medicine) =>
-    medicine.id === id
+  const updated = medicines.map((m) =>
+    m.id === id
       ? {
-          ...medicine,
-          missedCount: (medicine.missedCount || 0) + 1,
-          updatedAt: new Date().toISOString(),
+          ...m,
+          missedCount: m.missedCount + 1,
         }
-      : medicine
+      : m
   );
 
   writeStorage(updated);
-}
-
-export async function getUpcomingRefills(days = 7) {
-  const medicines = readStorage();
-
-  return medicines.filter((medicine) => {
-    const remaining = Number(medicine.remaining || 0);
-
-    switch (medicine.frequency) {
-      case "Daily":
-        return remaining <= days;
-
-      case "Weekly":
-        return remaining * 7 <= days;
-
-      case "Every 2 Weeks":
-        return remaining * 14 <= days;
-
-      case "Monthly":
-        return remaining * 30 <= days;
-
-      case "Custom":
-        return (
-          remaining * Number(medicine.customDays || 1) <= days
-        );
-
-      default:
-        return false;
-    }
-  });
-}
-
-export async function clearAllMedicines() {
-  localStorage.removeItem(STORAGE_KEY);
 }
