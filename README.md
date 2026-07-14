@@ -177,39 +177,7 @@ SaveBite-AI/
 
 ---
 
-# ⚙️ Installation
 
-Clone the repository
-
-```bash
-git clone https://github.com/nehal-arora/SaveBite-AI.git
-```
-
-Move into the project
-
-```bash
-cd SaveBite-AI
-```
-
-Install dependencies
-
-```bash
-npm install
-```
-
-Create a `.env` file
-
-```env
-VITE_GEMINI_API_KEY=YOUR_GEMINI_API_KEY
-```
-
-Start the development server
-
-```bash
-npm run dev
-```
-
----
 
 # 🌟 Future Improvements
 
