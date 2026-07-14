@@ -192,21 +192,7 @@ SaveBite-AI/
 
 ---
 
-# 📸 Screenshots
 
-Add screenshots of:
-
-* Home Page
-* Dashboard
-* Pantry
-* AI Assistant
-* Recipe Generator
-* Product Scanner
-* Health Hub
-* Analytics
-* Donation Page
-
----
 
 # 🎯 Hackathon Highlights
 
