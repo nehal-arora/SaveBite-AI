@@ -40,17 +40,21 @@ function HealthHub() {
   }, []);
 
   async function loadMedicines() {
-    setLoading(true);
+  setLoading(true);
 
-    try {
-      const data = await getMedicines();
-      setMedicines(data);
-    } catch (err) {
-      console.log(err);
-    }
+  try {
+    const data = await getMedicines();
 
-    setLoading(false);
+    console.log("Medicines:", data);
+
+    setMedicines(Array.isArray(data) ? data : []);
+  } catch (err) {
+    console.log(err);
+    setMedicines([]);
   }
+
+  setLoading(false);
+}
 
   async function handleAddMedicine(e) {
     e.preventDefault();
@@ -121,12 +125,13 @@ function HealthHub() {
   }
 
   const filteredMedicines = useMemo(() => {
-    return medicines.filter((medicine) =>
-      medicine.name
-        .toLowerCase()
-        .includes(search.toLowerCase())
-    );
-  }, [medicines, search]);
+  if (!Array.isArray(medicines)) return [];
+
+  return medicines.filter((medicine) => {
+    const name = medicine?.name || "";
+    return name.toLowerCase().includes(search.toLowerCase());
+  });
+}, [medicines, search]);
 
   const totalMedicines = medicines.length;
 
