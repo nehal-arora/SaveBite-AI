@@ -3,7 +3,6 @@ import "../styles/assistant.css";
 import { auth } from "../services/firebase";
 import { getPantryItems } from "../services/pantryService";
 import { model } from "../services/gemini";
-import { saveUserMemory, getUserMemory } from "../services/memoryService";
 
 function Assistant() {
   const [question, setQuestion] = useState("");
@@ -11,55 +10,30 @@ function Assistant() {
   const [loading, setLoading] = useState(false);
 
   async function askAI() {
-  if (!question.trim()) {
-    alert("Enter a question.");
-    return;
-  }
+    if (!question.trim()) {
+      alert("Enter a question.");
+      return;
+    }
 
-  setLoading(true);
+    setLoading(true);
 
-  try {
+    try {
+      const items = await getPantryItems(auth.currentUser.uid);
 
-    const userId = auth.currentUser.uid;
+      const pantry = items.length
+        ? items.map((item) => item.food).join(", ")
+        : "No pantry items";
 
-
-    const items = await getPantryItems(userId);
-
-    const pantry = items.length
-      ? items.map((item) => item.food).join(", ")
-      : "No pantry items";
-
-
-    // Save user preference / important information
-    await saveUserMemory(
-      userId,
-      question
-    );
-
-
-    // Retrieve previous memories
-    const memory = await getUserMemory(
-      userId,
-      question
-    );
-
-
-    const prompt = `
+      const prompt = `
 You are SaveBite AI.
 
 User Pantry:
 ${pantry}
 
-
-Previous User Memories:
-${memory}
-
-
-Current User Question:
+User Question:
 ${question}
 
-
-Use previous memories to personalize your answer.
+Answer in a friendly way.
 
 If recipes are requested, use pantry items.
 
@@ -70,23 +44,17 @@ If healthy alternatives are requested, suggest them.
 Keep the answer under 250 words.
 `;
 
+      const response = await model.generateContent(prompt);
 
-    const response = await model.generateContent(prompt);
+      setAnswer(response.response.text());
 
-    setAnswer(response.response.text());
+    } catch (err) {
+      console.error(err);
+      setAnswer("❌ Failed to generate response.");
+    }
 
-
-  } catch (err) {
-
-    console.error(err);
-
-    setAnswer("❌ Failed to generate response.");
-
+    setLoading(false);
   }
-
-
-  setLoading(false);
-}
 
   return (
     <div className="assistant-page">
