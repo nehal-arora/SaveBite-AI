@@ -1,15 +1,15 @@
-# 🥗 SaveBite AI
+#  SaveBite AI
 
 > **AI-Powered Smart Food & Health Management Platform**
 > Reduce food waste, manage medicines, generate recipes, and donate surplus food — all in one intelligent platform.
 
-🌐 **Live Demo:** [SaveBite AI](https://savebite-ai.vercel.app/?utm_source=chatgpt.com)
+ **Live Demo:** [SaveBite AI](https://savebite-ai.vercel.app/?utm_source=chatgpt.com)
 
-📂 **GitHub Repository:** [SaveBite-AI Repository](https://github.com/nehal-arora/SaveBite-AI?utm_source=chatgpt.com)
+ **GitHub Repository:** [SaveBite-AI Repository](https://github.com/nehal-arora/SaveBite-AI?utm_source=chatgpt.com)
 
 ---
 
-# 🚀 Problem Statement
+#  Problem Statement
 
 Millions of households waste edible food because they forget expiry dates or don't know what to cook with available ingredients. Similarly, medicines often expire unnoticed, creating financial loss and health risks.
 
@@ -17,26 +17,26 @@ Millions of households waste edible food because they forget expiry dates or don
 
 ---
 
-# 💡 Solution
+#  Solution
 
 SaveBite AI is an intelligent assistant that helps users:
 
-* 🥫 Track pantry items
-* 💊 Manage medicines and expiry dates
-* 🤖 Chat with an AI Assistant
-* 📷 Scan products using AI
-* 🍳 Generate recipes from available ingredients
-* ❤️ Donate surplus food
-* 📊 Monitor food waste analytics
-* 👤 Manage personal profile and dashboard
+*  Track pantry items
+*  Manage medicines and expiry dates
+*  Chat with an AI Assistant
+*  Scan products using AI
+*  Generate recipes from available ingredients
+*  Donate surplus food
+*  Monitor food waste analytics
+*  Manage personal profile and dashboard
 
 The platform encourages sustainable living while improving household organization and reducing unnecessary waste.
 
 ---
 
-# ✨ Features
+#  Features
 
-## 🏠 Dashboard
+##  Dashboard
 
 * Smart overview of pantry
 * Quick statistics
@@ -45,7 +45,7 @@ The platform encourages sustainable living while improving household organizatio
 
 ---
 
-## 🥫 Smart Pantry
+##  Smart Pantry
 
 * Add food items
 * Track expiry dates
@@ -55,7 +55,7 @@ The platform encourages sustainable living while improving household organizatio
 
 ---
 
-## 🤖 AI Assistant
+##  AI Assistant
 
 * Answers food-related questions
 * Suggests storage methods
@@ -65,7 +65,7 @@ The platform encourages sustainable living while improving household organizatio
 
 ---
 
-## 📷 AI Product Scanner
+##  AI Product Scanner
 
 * Scan product information
 * Identify expiry details
@@ -74,7 +74,7 @@ The platform encourages sustainable living while improving household organizatio
 
 ---
 
-## 🍳 AI Recipe Generator
+##  AI Recipe Generator
 
 Generate recipes instantly using available pantry ingredients.
 
@@ -87,7 +87,7 @@ Features include:
 
 ---
 
-## 💊 Health Hub
+##  Health Hub
 
 Manage medicines with:
 
@@ -99,7 +99,7 @@ Manage medicines with:
 
 ---
 
-## ❤️ Food Donation
+##  Food Donation
 
 Donate surplus food to reduce food waste.
 
@@ -112,7 +112,7 @@ Features:
 
 ---
 
-## 📈 Analytics
+##  Analytics
 
 Interactive dashboard displaying:
 
@@ -123,7 +123,7 @@ Interactive dashboard displaying:
 
 ---
 
-## 👤 User Profile
+##  User Profile
 
 * Secure authentication
 * Personal dashboard
@@ -132,7 +132,7 @@ Interactive dashboard displaying:
 
 ---
 
-# 🛠 Tech Stack
+#  Tech Stack
 
 ### Frontend
 
@@ -157,7 +157,7 @@ Interactive dashboard displaying:
 
 ---
 
-# 📂 Project Structure
+#  Project Structure
 
 ```text
 SaveBite-AI/
@@ -179,7 +179,7 @@ SaveBite-AI/
 
 
 
-# 🌟 Future Improvements
+#  Future Improvements
 
 * OCR-based expiry detection
 * Barcode scanning
@@ -194,7 +194,7 @@ SaveBite-AI/
 
 
 
-# 🎯 Hackathon Highlights
+#  Hackathon Highlights
 
 * AI-powered productivity platform
 * Sustainability-focused solution
@@ -205,28 +205,28 @@ SaveBite-AI/
 
 ---
 
-# 🌍 Impact
+#  Impact
 
 SaveBite AI promotes:
 
-* ♻️ Reduced food waste
-* 💰 Cost savings
-* 🍎 Health awareness
-* 🏡 Better household management
-* 🌱 Sustainable living
+*  Reduced food waste
+*  Cost savings
+*  Health awareness
+*  Better household management
+*  Sustainable living
 
 ---
 
-# 📄 License
+#  License
 
 This project is developed for educational and hackathon purposes.
 
 ---
 
-# ⭐ Support
+#  Support
 
 If you found this project useful, please consider giving it a ⭐ on GitHub.
 
 ---
 
-**Built with ❤️ using React, Firebase and Google Gemini AI**
+**Built using React, Firebase and Google Gemini AI**
